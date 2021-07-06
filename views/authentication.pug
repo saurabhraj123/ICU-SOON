@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title> Login and Registration Form in HTML & CSS</title>
+    <link rel="stylesheet" href="authentication.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    script(src="login.js") 
+    script(scr="register.js")
+    <script>
+      |function flipCheck() {
+      |   document.getElementById('flip').checked=true;
+      | }
+    </script> 
+      
+    </head>
+if(Joi || exists)
+  <body onLoad = "flipCheck()">
+else 
+<body>
+  <div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+      <div class="front">
+        <div class="text">
+          <span class="text-1">Every new Member is a <br> New Experience</span>
+          <span class="text-2">Let's get connected</span>
+        </div>
+      </div>
+      <div class="back">
+        <div class="text">
+          <span class="text-1">Complete miles of journey <br> with one step</span>
+          <span class="text-2">Let's get started</span>
+        </div>
+      </div>
+    </div>
+    <form action="authenticate" method="POST">
+      <div class="form-content">
+        <div class="login-form">
+        if(notValidated)
+            p(style="color:red;") *Email or Password is Incorrect!
+        <div class="title">Login</div>
+          <div class="input-boxes">
+            <div class="input-box">
+              <i class="fas fa-envelope"></i>
+              <input type="text" placeholder="Enter your email" name="email">
+            </div>
+            <div class="input-box">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Enter your password" name="password">
+            </div>
+            <div class="text"><a href="#">Forgot password?</a></div>
+            <div class="button input-box">
+              <input type="submit" value="Log In" name='auth'>
+            </div>
+            <div class="text sign-up-text">Not a Member? <label for="flip">Sigup now</label></div>
+          </div>
+        </div>
+        <div class="signup-form">
+          if(Joi)
+            p(style="color:red" onload="flipCheck()")= "* " + Joi.details[0].message
+          if(exists)
+            p(style="color:red" script="document.getElementByID('flip').checked=false") User already exists!
+          <div class="title">Signup</div>
+          <div class="input-boxes">
+            <div class="input-box">
+              <i class="fas fa-envelope"></i>
+              <input type="text" placeholder="Enter your email" name="email_field">
+            </div>
+            <div class="input-box">
+              <i class="fas fa-lock"></i>
+              <input type="password" placeholder="Enter your password" name="password_field">
+            </div>
+            <div class="check">
+                <input type="radio" id="doctor" name="user_type") value="doctor">
+                <label for="doctor">Sign in As Doctor</label><br>
+                <input type="radio" id="member" name="user_type" value="user" checked>
+                <label for="member">Sign in As Member</label><br>
+                </div>
+            <div class="button input-box">
+              <input type="submit" value="Sign Up" name='auth'>
+            </div>
+            <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

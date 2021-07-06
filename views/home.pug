@@ -1,0 +1,161 @@
+doctype html
+html(lang="en")
+
+head
+    title ICU Soon 
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="home.css")
+    link(href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Righteous&display=swap" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Merienda:wght@700&family=Righteous&display=swap"
+        rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet")
+    link(rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css")
+    script(src="https://kit.fontawesome.com/a076d05399.js")
+    link(rel="stylesheet" href="homecss")
+
+body 
+    nav
+        input(type="checkbox" id="check")
+        label(for="check" class="checkbtn")
+            i(class="fas fa-bars")
+        ul 
+            li 
+                if(!isValidated)
+                    a(class="active" href="#") Home
+                else 
+                    a(class="active" href="#") Profile
+            li 
+                a(href="#") Services & Conditions
+            li 
+                a(href="#") Contact Us 
+            li 
+                a(href="#" class="em") Emergency  
+            li 
+                if(!isValidated)
+                    a(href="authenticate" class="sigin") Sign up/Log in
+                else 
+                    a(href="authenticate/logout" class="sigin") Logout
+        div(class="logo")
+            a(href="/") 
+                img(src="pimg/logopro.png" alt="ICU soon")
+    <section class="s1">
+            <h1>We care as we cure</h1><br>
+            <p>Proving medical assistant in few clicks, connected to 3000+ top doctors from all over the World,ready to treat, ready to cure. <br><br>
+            </p>
+            <div class="s1_link">
+                <li><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Quick support&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </a></li>
+                <li><a href="#" class="qs"> Book appointment </a></li>
+            </div>
+    </section>
+
+    <section class="s2">
+        <h1 class="s2h" data-aos="fade-top">&#9830;&nbsp;WE GAVE UP LIFE, TO LEARN HOW TO SAVE
+            || OTHERS&nbsp;&#9830;&nbsp;&||| nbsp;</h1>
+        <div class="services">
+            <div class="box" data-aos="fade-right">
+                <img src="pimg/doc2.jpg" alt="">
+                <h1> Dr. Jennifer Lee</h1>
+                <h2>Dentist (8yr+ experience)</h2>
+                <p>She is Passionate about providing care to those in needs and has been honoured with a
+                    Certificate of Merit for providing exemplary care to complex dental patients throughout his career
+                </p>
+            </div>
+            <div class="box" data-aos="fade-up">
+                <img src="pimg/doc1.webp" alt="">
+                <h1> Dr. Naresh Trehan</h1>
+                <h2>Surgeon (14yr+ experience)</h2>
+                <p>He had treated thousands of people and done thousands of surgeries in almost a
+                    decade.High-performing professional with a commitment to optimal patient care with a proven ability
+                    to function well.</p>
+            </div>
+            <div class="box" data-aos="fade-left">
+                <img src="pimg/doc3.jpg" alt="">
+                <h1> Dr. Sara Wright</h1>
+                <h2>Physician (10yr+ experience)</h2>
+                <p>She is personable, great listener, and empathetic to the concerns of her patients. She
+                    will offer resources, information and research that patients can use to make informed decisions
+                    about treatment plan.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="s3">
+        <h1 class="s3h">FROM OUR HAPPY MEMBERS</h1>
+        <div class="pat">
+            <div class="box3" data-aos="fade-right">
+                <div class="dp">
+                    <h1>Swara Sinha</h1>
+                    <img src="pimg/s3face1.jpeg" alt="">
+                </div>
+                <p>Member since 2017, ICU soon provided me the best assistant. I had a hip replacement
+                    with Dr.Bawa The surgery went smoothly. I was walking right after surgery and had physical therapy the same day
+                    and It always felt safe.
+                </p>
+            </div>
+            <div class="box3" data-aos="fade-left">
+                <p class="center">Member since 2018, Such a great facilities, best care with least economic charges when
+                    compared to other.Very well experienced doctors, no biase and it Feels like a good treatment at home. I highly
+                    recommend their assistant</p>
+                <div class="dp-left">
+                    <h1>Allena lio</h1>
+                    <img src="pimg/s3face2.jpeg" alt="">
+                </div>
+            </div>
+            <div class="box3" data-aos="fade-right">
+                <div class="dp">
+                    <h1>Isabella buttler</h1>
+                    <img src="pimg/s3face3.jpeg" alt="">
+                </div>
+                <p class="center">Member since 2017, I feel much more healthy and younger, the quick assistant and
+                    providing the best teams of doctor, help a lot throught my difficult times. I hope and pray, may God give you and your family
+                    best health.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="bigbox4">
+            <div class="box4">
+                <h1>368</h1>
+                <h1>--------</h>
+                <h1>Successful Transplant</h1>
+            </div>
+            <div class="box4">
+                <h1>19,260</h1>
+                <h1>--------</h>
+                    <h1>Happy Patients</h1>
+            </div>
+            <div class="box4">
+                <h1>84</h1>
+                <h1>--------</h>
+                    <h1>Awards Winning</h1>
+            </div>
+            <div class="box4">
+                <h1>2,500</h1>
+                <h1>--------</h1>
+                <h1>Associate Lab</h1>
+            </div>
+            <div class="box4">
+                <h1>6,280</h1>
+                <h1>--------</h>
+                    <h1>Specialized Doctors</h1>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer">
+            <p>Copyright &#169; 2021 - Group 5</p>
+        </div>
+        <p class="rights">All rights reserved</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    script
+        | AOS.init();
+    
