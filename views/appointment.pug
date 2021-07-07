@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ICU soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../appointment.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Merienda:wght@700&family=Righteous&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    //- <nav>
+    //-     <input type="checkbox" id="check">
+
+    //-     <label for="check" class="checkbtn">
+    //-         <i class="fas fa-bars"></i>
+    //-     </label>
+    //-     <ul>
+    //-         <li><a class="active" href="P1doc.html">Home</a></li>
+    //-         <li><a href="#">Services & Condition</a></li>
+    //-         <li><a href="#">Contact Us</a></li>
+    //-         <li><a href="#" class="em">Emergency</a></li>
+    //-         <li><a href="form.html" class="signin">Sign up/Log in</a></li>
+    //-     </ul>
+    //-     <div class="logo">
+    //-         <img src="pimg/logopro.png" alt="ICU soon">
+    //-     </div>
+
+    //- </nav>
+    nav
+        input(type="checkbox" id="check")
+        label(for="check" class="checkbtn")
+            i(class="fas fa-bars")
+        ul 
+            li 
+                if(!isValidated)
+                    a(class="active" href="#") Home
+                else 
+                    a(class="active" href="#") Profile
+            li 
+                a(href="#") Services & Conditions
+            li 
+                a(href="#") Contact Us 
+            li 
+                a(href="#" class="em") Emergency  
+            li 
+                if(!isValidated)
+                    a(href="authenticate" class="sigin") Sign up/Log in
+                else 
+                    a(href="authenticate/logout" class="sigin") Logout
+        div(class="logo")
+            a(href="/") 
+                img(src="pimg/logopro.png" alt="ICU soon")
+
+    <section class="s1">
+        <div class="s1_box">
+            <div class="ba">
+                Book appointment
+            </div>
+            <div class="ba_line">
+                Choose from the best doctors in your city, Book now!!
+                <p>______________________________________________________</p>
+            </div>
+            <div class="form">
+                <h1>Lets get started, select your city</h1><br>
+
+                <div class="select">
+                    <select name="format" id="format">
+                        <option selected disabled>Select city</option>
+                        <option value="agra">Agra</option>
+                        <option value="Chandi">Chandigarh</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="jaipur">Jaipur</option>
+                        <option value="kanpur">Kanpur</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="ranchi">Ranchi</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="s1_img">
+            <img src="pimg/BookA3.png" alt="" height="430" width="740">
+        </div>
+    </section>
+    
+    -for(let i=0; i<result.length; i++) {
+        <section class="s2">
+            <div class="s2_img">
+                <img src="pimg/BAdoc1.jpg" alt="">
+            </div>
+            <a href="Adv.html">
+                <div class="s2_box">
+                    h1(style="display:inline-block;")= result[i].first_name +  "    " + result[i].last_name
+            </a>
+                    <div class="star">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+
+                    </div>
+
+                    h3
+                        u &#187; Fees: 
+                        | &nbsp; 
+                        = "Rs " + result[i].fee
+                    h3
+                        u &#187; Contact no: 
+                        | &nbsp; 
+                        = result[i].contact_number    
+                    h3
+                        u &#187; Availability: 
+                        | &nbsp; 
+                        = result[i].available_from + " To " + result[i].available_till
+                    h3
+                        u &#187; Address: 
+                        | &nbsp; 
+                        = result[i].clinic_name + ", " + result[i].city + ", " + result[i].state + ", " + result[i].pin
+
+                    //- <h3><u> &#187; Contact no:</u>= result[0].fee 8195776202</h3>
+                    //- <h3><u> &#187; City:</u>Chandigarh - 121010</h3>
+                    //- <h3><u> &#187; Address:</u>
+                    //-     Bajaj Clinic, Street no. 12, Chandigarh</h3>
+                    <p>Specialized in childhood medicine, or those under 18. Oversee the health and development of
+                        babies and children. They administer vaccines. keep track of a child's growth, and are the first
+                        contact when a child a sick.</p>
+            </div>
+
+        </section>
+    -}
+
+
+</body>
+
+</html>

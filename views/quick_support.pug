@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Quick Support</title>
+    <link rel="stylesheet" href="../quick_support.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Merienda:wght@700&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    //- <nav>
+    //-     <input type="checkbox" id="check">
+
+    //-     <label for="check" class="checkbtn">
+    //-         <i class="fas fa-bars"></i>
+    //-     </label>
+    //-     <ul>
+    //-         <li><a class="active" href="P1doc.html">Home</a></li>
+    //-         <li><a href="#">Services & Condition</a></li>
+    //-         <li><a href="#">Contact Us</a></li>
+    //-         <!-- <li><a href="#">Feedback</a></li> -->
+    //-         <li><a href="#" class="em">Emergency</a></li>
+    //-         <li><a href="#" class="signin">Sign up/Log in</a></li>
+    //-     </ul>
+    //-     <div class="logo">
+    //-         <img src="pimg/logopro.png" alt="ICU soon">
+    //-     </div>
+    //- </nav>
+
+    nav
+        input(type="checkbox" id="check")
+        label(for="check" class="checkbtn")
+            i(class="fas fa-bars")
+        ul 
+            li 
+                if(!isValidated)
+                    a(class="active" href="/") Home
+                else 
+                    a(class="active" href="#") Profile
+            li 
+                a(href="#") Services & Conditions
+            li 
+                a(href="#") Contact Us 
+            li 
+                a(href="#" class="em") Emergency  
+            li 
+                if(!isValidated)
+                    a(href="authenticate" class="sigin") Sign up/Log in
+                else 
+                    a(href="authenticate/logout" class="sigin") Logout
+        div(class="logo")
+            a(href="/") 
+                img(src="pimg/logopro.png" alt="ICU soon")
+
+    <section class="s1">
+        <div class="s1_box">
+            <div class="qs">
+                Quick Support
+            </div>
+            <div class="qs_line">
+                A one step solution for your daily problems, advised with years of experience
+            </div>
+        </div>
+
+        <div class="s1_nav">
+            <div class="mv">
+                Most Visited
+            </div>
+            <div class="s1_link1">
+                <a href="Adv.html">High Fever</a>
+                <a href="#">Cold & Cough</a>
+                <a href="#">Headache</a>
+            </div>
+            <div class="s1_link2">
+                <a href="#">Dengue</a>
+                <a href="#">Stomach Ache</a>
+                <a href="#">Maleria</a>
+            </div>
+        </div>
+    </section>
+
+    <a href="#">
+        <section class="s2">
+            <div class="s2_img">
+                <img src="pimg/qsbox2.jpg" alt="">
+            </div>
+            <a href="Adv.html">
+                <div class="s2_box">
+                    <h1>High Fever</h1>
+                    <h3>Advised by: Dr. Hemant bajaj</h3>
+                    <p>A temporary increase in body temperature, often due to illness or maybe due the internal affect
+                        of vaccination. Common symptoms can be feeling
+                        hot or
+                        flushed with body temperature of more then 100.4 F, having body aches, chills, sweating,
+                        dehydration and weakness. Click to get the advisory!!</p>
+                </div>
+
+        </section>
+    </a>
+
+</body>
+
+</html>

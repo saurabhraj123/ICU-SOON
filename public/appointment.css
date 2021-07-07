@@ -1,0 +1,303 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+nav {
+  background: #fff;
+  height: 80px;
+  width: 100%;
+}
+.logo img {
+  height: 80px;
+  width: 170px;
+  margin-left: 125px;
+}
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+nav ul li {
+  font-family: "Righteous", cursive;
+  display: inline-block;
+  margin: 0 15px;
+  margin-left: 25px;
+  padding-top: 1px;
+  padding-left: 15px;
+  /* font-size: 20px; */
+  line-height: 80px;
+  font-weight: 700;
+}
+nav ul li a {
+  font-size: 1.3rem;
+  color: rgb(17, 143, 226);
+  padding-left: 7px;
+  padding-bottom: 2px;
+  border-left: 3px solid rgb(41, 166, 238);
+  border-bottom: 5px solid rgb(41, 166, 238);
+  border-radius: 10px;
+}
+nav ul li a:hover {
+  color: rgb(44, 109, 248);
+  border-left: 3px solid rgb(44, 92, 248);
+  border-bottom: 5px solid rgb(44, 92, 248);
+  /* transition: .5s; */
+  text-shadow: 0.2px 0.2px 0.5px rgb(30, 119, 252);
+  border-left: 3px solid rgb(41, 166, 238);
+  border-bottom: 4px solid rgb(41, 166, 238);
+}
+nav ul li a:active {
+  margin-left: 1px;
+  border-left: 2px solid rgb(41, 166, 238);
+  border-bottom: 2.4px solid rgb(41, 166, 238);
+}
+.em:hover {
+  color: rgb(216, 55, 27);
+  border-left: 3px solid rgb(218, 50, 20);
+  border-bottom: 5px solid rgb(212, 41, 10);
+}
+.em:active {
+  border-left: 2px solid rgb(218, 50, 20);
+  border-bottom: 2.6px solid rgb(212, 41, 10);
+}
+.checkbtn {
+  font-size: 30px;
+  color: black;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+.signin {
+  font-weight: 500;
+  border-radius: 7px;
+  padding: 6px;
+  padding: 6px 9px;
+  color: white;
+  background-color: rgb(31, 128, 240);
+}
+
+.signin:hover {
+  background-color: rgb(32, 101, 228);
+  color: white;
+}
+
+#check {
+  display: none;
+}
+@media (max-width: 952px) {
+  .logo img {
+    margin-left: 5px;
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1100px) {
+  .checkbtn {
+    display: block;
+  }
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 30px;
+  }
+  a:hover,
+  a.active {
+    background: none;
+    color: #0000ff;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+}
+
+/*SECTION-1* BOOK APP*/
+
+.s1 {
+  background-image: linear-gradient(
+    to left,
+    rgb(20, 116, 243),
+    rgb(184, 214, 253)
+  );
+  display: flex;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.s1_box {
+  width: 900px;
+  text-align: center;
+}
+
+.s1_img {
+  padding-top: 20px;
+}
+
+.ba {
+  padding-top: 60px;
+  color: rgb(10, 55, 138);
+  text-shadow: 1.8px 1.8px 2px rgb(27, 94, 170);
+  font-family: "Righteous", cursive;
+  font-size: 4.9rem;
+  font-weight: 500;
+}
+
+.ba_line {
+  padding-top: 15px;
+  text-align: center;
+  color: rgb(7, 51, 134);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.form {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 10vh; */
+  font-family: "Open Sans", sans-serif;
+  color: rgb(7, 51, 134);
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: #155cb8;
+  background-image: none;
+  flex: 1;
+  padding: 0 0.5em;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-family: "Open Sans", sans-serif;
+}
+select::-ms-expand {
+  display: none;
+}
+.select {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: #aab0bd;
+  overflow: hidden;
+  border-radius: 0.25em;
+}
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #0b3ca5;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+}
+.select:hover::after {
+  color: #ffffff;
+}
+
+/* SECTION-2 DOCTORS */
+
+.checked {
+  color: rgb(255, 196, 0);
+}
+
+.star {
+  float: right;
+  padding: 30px 65px;
+  font-size: 1.5rem;
+}
+.s2 {
+  justify-content: center;
+  padding: 50px;
+  display: flex;
+  margin: 10px;
+  /* background: url(pimg/qss2back1.jpg); */
+}
+
+.s2 u {
+  background-color: whitesmoke;
+  border-radius: 40px;
+  padding: 2px 8px;
+  border-bottom: 1.6px solid rgb(255, 255, 255);
+  font-weight: 900;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.s2_box {
+  background-image: linear-gradient(
+    to right,
+    rgb(119, 170, 247),
+    rgb(224, 248, 250)
+  );
+  border: 0px solid rgb(0, 68, 255);
+  width: 1100px;
+  height: 320px;
+  padding-left: 40px;
+}
+
+.s2_img img {
+  height: 320px;
+  width: 316px;
+  /* position: relative; */
+  /* top: 12px; */
+  /* left: 47px; */
+  /* box-shadow: -6px 6px 7px grey; */
+  border: 10px solid rgb(119, 170, 247);
+}
+
+.s2_box h1 {
+  padding-top: 24px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid white;
+  font-size: 2.4rem;
+  color: rgb(8, 9, 117);
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.s2_box h3 {
+  padding-top: 11px;
+  font-size: 1.2rem;
+  color: rgb(8, 9, 117);
+  font-family: "Merriweather Sans", sans-serif;
+  font-family: 900px;
+}
+
+.s2_box p {
+  border-top: 1.5px solid whitesmoke;
+  padding-top: 15px;
+  text-align: justify;
+  margin-top: 26px;
+  padding-right: 18px;
+  font-size: 1.1rem;
+  color: rgb(8, 9, 117);
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 900;
+}

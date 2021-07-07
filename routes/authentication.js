@@ -86,7 +86,7 @@ router.post('/', async (req, res) => {
                     // console.log(err);
                     return res.render('authentication', {exists: true});
                 }
-                res.send('User successfully registered..');
+                res.render('authentication', {registered: true});
             })
 
         }catch(err) {

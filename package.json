@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/joi": "^15.0.3",
+    "atob": "^2.1.2",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
