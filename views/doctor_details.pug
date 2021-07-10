@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ICU soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../doctor_details.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Merienda:wght@700&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+//- script(src="../enableButton.js")
+
+<body>
+    //- <nav>
+    //-     <input type="checkbox" id="check">
+
+    //-     <label for="check" class="checkbtn">
+    //-         <i class="fas fa-bars"></i>
+    //-     </label>
+    //-     <ul>
+    //-         <li><a class="active" href="P1doc.html">Home</a></li>
+    //-         <li><a href="#">Services & Condition</a></li>
+    //-         <li><a href="#">Contact Us</a></li>
+    //-         <li><a href="#" class="em">Emergency</a></li>
+    //-         <li><a href="form.html" class="signin">Sign up/Log in</a></li>
+    //-     </ul>
+    //-     <div class="logo">
+    //-         <img src="../pimg/logopro.png" alt="ICU soon">
+    //-     </div>
+
+    //- </nav>
+
+    nav
+        input(type="checkbox" id="check")
+        label(for="check" class="checkbtn")
+            i(class="fas fa-bars")
+        ul 
+            li 
+                if(!isValidated)
+                    a(class="active" href="#") Home
+                -else{ 
+                    -const url = "../user/" + user_id;
+                    a(class="active" href=url) Profile
+                -}
+            li 
+                a(href="#") Services & Conditions
+            li 
+                a(href="#") Contact Us 
+            li 
+                a(href="#" class="em") Emergency  
+            li 
+                if(!isValidated)
+                    a(href="authenticate" class="signin") Sign up/Log in
+                else 
+                    a(href="../authenticate/logout" class="signin") Logout
+        div(class="logo")
+            a(href="/") 
+                img(src="../pimg/logopro.png" alt="ICU soon")
+    
+    //- include navigation.pug
+
+    //- Function to convert 24hour time to 12 hour time format
+    -
+     function tConvert (time) {
+        // Check correct time format and split into components
+        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+        if (time.length > 1) { // If time format correct
+            time = time.slice (1);  // Remove full string match value
+            time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+            time[0] = +time[0] % 12 || 12; // Adjust hours
+        }
+        return time.join (''); // return adjusted time or original string
+        }
+
+
+    <section class="main">
+        <section class="s1">
+            <div class="img">
+                <img src="../pimg/BAdoc1.jpg" alt="">
+            </div>
+            <div class="about">
+                h1 
+                    u Name:
+                    | &nbsp;
+                    = result[0].first_name + " " + result[0].last_name
+                h1 
+                    u Clinic:
+                    | &nbsp;
+                    = result[0].clinic_name
+                h1 
+                    u Phone:
+                    | &nbsp;
+                    = result[0].contact_number
+                h1 
+                    u Speciality:
+                    | &nbsp;
+                    = result[0].specialization
+                //- <h1><u>Name:</u> Dr. Hemant Bajaj</h1>
+                //- <h1><u>Degree:</u> MBBS & BHMS </h1>
+                //- <h1><u>Experience:</u> 12+ years</h1>
+                //- <h1><u>Speciallity:</u> Pediatrician</h1>
+            </div>
+        </section>
+
+        <section class="s2">
+            h1 
+                | More About Dr. 
+                = result[0].first_name
+            
+            p= result[0].about_me
+            //- <p>I am having more then 12 years of experience being aI am Specialized in childhood medicine, or those
+            //-     under 18. Oversee the health and development of
+            //-     babies and children and also administer vaccines. I keep track of a child's growth, and are the first
+            //-     contact when a child a sick. I am professionally trained at the All India Institute of medical science
+            //-     to diagnose and treat a broad range of childhood illnesses, from minor health problems to serious
+            //-     diseases.
+            //- </p>
+
+            <div class="in_box">
+                <div class="content">
+                    h2
+                        <u>Appointment Fees:</u> Rs. 
+                        = result[0].fee
+                    h2
+                        <u>Availaibility:</u> 
+                        = tConvert(result[0].available_from.slice(0,-3)) + " - " + tConvert(result[0].available_till.slice(0,-3))
+                    //- <h2><u>Availability Time:</u> 10:00AM - 7:00PM</h2>
+                </div>
+
+                <div class="content">
+                    h2
+                        <u>State:</u> 
+                        = result[0].state
+                    h2
+                        <u>Address:</u> 
+                        = result[0].clinic_name + ", " + result[0].city + ", " + result[0].state + ", " + result[0].pin_code
+                    //- p= result[0].description
+                    //- <h2><u>State:</u> Punjab - 121010</h2>
+                    //- <h2><u>Address:</u> Bajaj Clinic, street no. 12, Chandigarh</h2>
+                </div>
+            </div><br><br><br>
+
+            <div class="lastl">
+                //- <h1>Trust me, this is way better than your internet search.</h1>
+            </div>
+
+            //- <div class="s1_link">
+            //-     -if(user_type != 'user')
+            //-         <li><a href="#" class="qp" style="background-color:grey; box-shadow: none"> Book appointment </a></li>
+            //-     -else{
+            //-         <li><a href="#" class="qs"> Book appointment </a></li>
+            //-     -}
+            //- </div>
+
+            <!-- Trigger/Open The Modal -->
+    if(user_type == 'user')
+        <button id="myBtn">Book Appointment</button>
+    else 
+        //- p raj
+        button(id="myBtn" disabled style="background-color:grey; box-shadow: none") Book Appointment
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    
+  <!-- Modal content -->
+  <div class="modal-content">
+    if (status != 2)
+        <span class="close">&times;</span>
+        <p style="text-align:center">Select an Appointment Date</p>
+        <form action="book_appointment" method="post" >
+            <input type="date" id="book_button" name="appointment_date" required>
+            input(type="number" value=`${result[0].registration_id}` name="doctor_id" style="display:none")
+            -if(user_type != 'user')
+                <button type="submit" class="myBtn" disabled> Book Now </button>
+            -else 
+                <button type="submit" class="myBtn"> Book Now </button>
+        </form>
+    else 
+        <span class="close">&times;</span>
+        p(style="text-align:center")= "You already have an appointment with Dr. " + result[0].first_name + "."
+        button(type="submit" class="myBtn" id="hide") Ok
+  </div>
+
+</div>
+        </section>
+
+</section>
+
+    <section class="stats">
+        <div class="bigbox4">
+            <div class="box4">
+                <h1>368</h1>
+                <h1>--------</h>
+                    <h1>Successful Transplant</h1>
+            </div>
+            <div class="box4">
+                <h1>19,260</h1>
+                <h1>--------</h>
+                    <h1>Happy Patients</h1>
+            </div>
+            <div class="box4">
+                <h1>84</h1>
+                <h1>--------</h>
+                    <h1>Awards Winning</h1>
+            </div>
+            <div class="box4">
+                <h1>2,500</h1>
+                <h1>--------</h1>
+                <h1>Associate Lab</h1>
+            </div>
+            <div class="box4">
+                <h1>6,280</h1>
+                <h1>--------</h>
+                    <h1>Specialized Doctors</h1>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer">
+            <p>Copyright &#169; 2021 - Group 4</p>
+        </div>
+        <p class="rights">All rights reserved</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    script
+        | AOS.init();
+    
+    script. 
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            var hide = document.getElementById("hide");
+            
+            hide.onclick = function() {
+                modal.style.display = "none";
+            }
+
+
+            //- Setting minimum date
+            // Use Javascript
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0 so need to add 1 to make it 1!
+            var yyyy = today.getFullYear();
+            if(dd<10){
+            dd='0'+dd
+            } 
+            if(mm<10){
+            mm='0'+mm
+            } 
+
+            today = yyyy+'-'+mm+'-'+dd;
+            document.getElementById("book_button").setAttribute("min", today);
+
+</body>
+
+</html>

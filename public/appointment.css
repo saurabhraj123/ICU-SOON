@@ -236,10 +236,13 @@ select::-ms-expand {
 }
 .s2 {
   justify-content: center;
-  padding: 50px;
+  padding: 15px;
   display: flex;
-  margin: 10px;
+  margin: 20px;
   /* background: url(pimg/qss2back1.jpg); */
+  /* border: 2px solid rgb(0, 68, 255); */
+  transition-property: transform;
+  transition-duration: 0.4s;
 }
 
 .s2 u {
@@ -257,11 +260,30 @@ select::-ms-expand {
     rgb(119, 170, 247),
     rgb(224, 248, 250)
   );
-  border: 0px solid rgb(0, 68, 255);
+  /* border: 0px solid rgb(0, 68, 255); */
   width: 1100px;
   height: 320px;
   padding-left: 40px;
 }
+
+.s2:hover {
+  transform: scale(1.005);
+}
+
+/* .s2:nth-child(odd) {
+  background-image: linear-gradient(
+    to right,
+    rgb(119, 170, 247),
+    rgb(224, 248, 250)
+  );
+}
+.s2:nth-child(even) {
+  background-image: linear-gradient(
+    to right,
+    rgb(34, 88, 160),
+    rgb(224, 248, 250)
+  );
+} */
 
 .s2_img img {
   height: 320px;

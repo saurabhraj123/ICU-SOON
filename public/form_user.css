@@ -120,10 +120,15 @@ form .button input:hover {
   /* transform: scale(0.99); */
   background: linear-gradient(-135deg, #71b7e6, #9b59b6);
 }
+
+textarea {
+  /* flex-basis: 100%; */
+}
 @media (max-width: 584px) {
   .container {
     max-width: 100%;
   }
+
   form .user-details .input-box {
     margin-bottom: 15px;
     width: 100%;

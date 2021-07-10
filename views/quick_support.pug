@@ -34,30 +34,32 @@
     //-     </div>
     //- </nav>
 
-    nav
-        input(type="checkbox" id="check")
-        label(for="check" class="checkbtn")
-            i(class="fas fa-bars")
-        ul 
-            li 
-                if(!isValidated)
-                    a(class="active" href="/") Home
-                else 
-                    a(class="active" href="#") Profile
-            li 
-                a(href="#") Services & Conditions
-            li 
-                a(href="#") Contact Us 
-            li 
-                a(href="#" class="em") Emergency  
-            li 
-                if(!isValidated)
-                    a(href="authenticate" class="sigin") Sign up/Log in
-                else 
-                    a(href="authenticate/logout" class="sigin") Logout
-        div(class="logo")
-            a(href="/") 
-                img(src="pimg/logopro.png" alt="ICU soon")
+    //- nav
+    //-     input(type="checkbox" id="check")
+    //-     label(for="check" class="checkbtn")
+    //-         i(class="fas fa-bars")
+    //-     ul 
+    //-         li 
+    //-             if(!isValidated)
+    //-                 a(class="active" href="/") Home
+    //-             else 
+    //-                 a(class="active" href="#") Profile
+    //-         li 
+    //-             a(href="#") Services & Conditions
+    //-         li 
+    //-             a(href="#") Contact Us 
+    //-         li 
+    //-             a(href="#" class="em") Emergency  
+    //-         li 
+    //-             if(!isValidated)
+    //-                 a(href="authenticate" class="sigin") Sign up/Log in
+    //-             else 
+    //-                 a(href="authenticate/logout" class="sigin") Logout
+    //-     div(class="logo")
+    //-         a(href="/") 
+    //-             img(src="pimg/logopro.png" alt="ICU soon")
+
+    include navigation.pug
 
     <section class="s1">
         <div class="s1_box">

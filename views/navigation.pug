@@ -1,0 +1,26 @@
+nav
+        input(type="checkbox" id="check")
+        label(for="check" class="checkbtn")
+            i(class="fas fa-bars")
+        ul 
+            li 
+                if(!isValidated)
+                    a(class="active" href="/") Home
+                -else{
+                    -const url = "user/" + _id;
+                    a(class="active" href=url) Profile
+                -}
+            li 
+                a(href="#") Services & Conditions
+            li 
+                a(href="#") Contact Us 
+            li 
+                a(href="#" class="em") Emergency  
+            li 
+                if(!isValidated)
+                    a(href="authenticate" class="signin") Sign up/Log in
+                else 
+                    a(href="authenticate/logout" class="signin") Logout
+        div(class="logo")
+            a(href="/") 
+                img(src="../pimg/logopro.png" alt="ICU soon")

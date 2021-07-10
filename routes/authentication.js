@@ -1,9 +1,10 @@
-const router = require('express').Router();
-const db = require('../db');
-const bcrypt = require('bcrypt');
-const Joi = require('@hapi/joi');
-const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv').config();
+const router  = require('express').Router();
+const db      = require('../db');
+const bcrypt  = require('bcrypt');
+const Joi     = require('@hapi/joi');
+const jwt     = require('jsonwebtoken');
+const dotenv  = require('dotenv').config();
+var atob      = require('atob');
 
 // Schema for JOI
 const schema = {

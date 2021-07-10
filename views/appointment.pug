@@ -31,7 +31,6 @@
     //-         <img src="pimg/logopro.png" alt="ICU soon">
     //-     </div>
 
-    //- </nav>
     nav
         input(type="checkbox" id="check")
         label(for="check" class="checkbtn")
@@ -39,9 +38,11 @@
         ul 
             li 
                 if(!isValidated)
-                    a(class="active" href="#") Home
-                else 
-                    a(class="active" href="#") Profile
+                    a(class="active" href="/") Home
+                -else{
+                    -const url = "user/" + _id;
+                    a(class="active" href=url) Profile
+                -}
             li 
                 a(href="#") Services & Conditions
             li 
@@ -50,13 +51,15 @@
                 a(href="#" class="em") Emergency  
             li 
                 if(!isValidated)
-                    a(href="authenticate" class="sigin") Sign up/Log in
+                    a(href="authenticate" class="signin") Sign up/Log in
                 else 
-                    a(href="authenticate/logout" class="sigin") Logout
+                    a(href="authenticate/logout" class="signin") Logout
         div(class="logo")
             a(href="/") 
-                img(src="pimg/logopro.png" alt="ICU soon")
+                img(src="/pimg/logopro.png" alt="ICU soon")
 
+    //- include navigation.pug
+    
     <section class="s1">
         <div class="s1_box">
             <div class="ba">
@@ -72,11 +75,11 @@
                 <div class="select">
                     <select name="format" id="format">
                         <option selected disabled>Select city</option>
-                        <option value="agra">Agra</option>
+                        <option value="agra">All</option>
                         <option value="Chandi">Chandigarh</option>
                         <option value="Delhi">Delhi</option>
-                        <option value="jaipur">Jaipur</option>
-                        <option value="kanpur">Kanpur</option>
+                        <option value="jaipur">Bihar</option>
+                        <option value="kanpur">Jharkhand</option>
                         <option value="mumbai">Mumbai</option>
                         <option value="ranchi">Ranchi</option>
                     </select>
@@ -84,19 +87,36 @@
             </div>
         </div>
         <div class="s1_img">
-            <img src="pimg/BookA3.png" alt="" height="430" width="740">
+            <img src="/pimg/BookA3.png" alt="" height="430" width="740">
         </div>
     </section>
+
+    //- Function to convert 24hour time to 12 hour time format
+    -
+     function tConvert (time) {
+        // Check correct time format and split into components
+        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+        if (time.length > 1) { // If time format correct
+            time = time.slice (1);  // Remove full string match value
+            time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+            time[0] = +time[0] % 12 || 12; // Adjust hours
+        }
+        return time.join (''); // return adjusted time or original string
+        }
     
     -for(let i=0; i<result.length; i++) {
+        -let x = `https://source.unsplash.com/random/32${i}x316`;
         <section class="s2">
             <div class="s2_img">
-                <img src="pimg/BAdoc1.jpg" alt="">
+                //- <img src="pimg/BAdoc1.jpg" alt="">
+                //- img(src="https://source.unsplash.com/random", alt="")
+                img(src=x)
             </div>
-            <a href="Adv.html">
+            -let id = "/appointment/" + result[i].registration_id
+            a(href=id)  
                 <div class="s2_box">
                     h1(style="display:inline-block;")= result[i].first_name +  "    " + result[i].last_name
-            </a>
                     <div class="star">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -117,19 +137,21 @@
                     h3
                         u &#187; Availability: 
                         | &nbsp; 
-                        = result[i].available_from + " To " + result[i].available_till
+                        -let time =tConvert(result[i].available_from.slice(0,-3)) + " - " + tConvert(result[i].available_till.slice(0,-3))
+                        = time
                     h3
                         u &#187; Address: 
                         | &nbsp; 
-                        = result[i].clinic_name + ", " + result[i].city + ", " + result[i].state + ", " + result[i].pin
+                        = result[i].clinic_name + ", " + result[i].city + ", " + result[i].state + ", " + result[i].pin_code
+                    p= result[i].description
 
                     //- <h3><u> &#187; Contact no:</u>= result[0].fee 8195776202</h3>
                     //- <h3><u> &#187; City:</u>Chandigarh - 121010</h3>
                     //- <h3><u> &#187; Address:</u>
                     //-     Bajaj Clinic, Street no. 12, Chandigarh</h3>
-                    <p>Specialized in childhood medicine, or those under 18. Oversee the health and development of
-                        babies and children. They administer vaccines. keep track of a child's growth, and are the first
-                        contact when a child a sick.</p>
+                    //- <p>Specialized in childhood medicine, or those under 18. Oversee the health and development of
+                    //-     babies and children. They administer vaccines. keep track of a child's growth, and are the first
+                    //-     contact when a child a sick.</p>
             </div>
 
         </section>

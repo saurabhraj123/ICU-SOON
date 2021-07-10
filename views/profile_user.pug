@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Merienda:wght@700&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<link rel="stylesheet" href="/profile_user.css">
+
+<body>
+
+    //- <nav>
+    //-     <input type="checkbox" id="check">
+
+    //-     <label for="check" class="checkbtn">
+    //-         <i class="fas fa-bars"></i>
+    //-     </label>
+    //-     <ul>
+    //-         <li><a class="active" href="#">Home</a></li>
+    //-         <li><a href="#">Services & Condition</a></li>
+    //-         <li><a href="#">Contact Us</a></li>
+    //-         <li><a href="#" class="em">Emergency</a></li>
+    //-         <li><a href="form.html" class="signin">Sign up/Log in</a></li>
+    //-     </ul>
+    //-     <div class="logo">
+    //-         <img src="../pimg/logopro.png" alt="ICU soon">
+    //-     </div>
+
+    //- </nav>
+    nav
+        input(type="checkbox" id="check")
+        label(for="check" class="checkbtn")
+            i(class="fas fa-bars")
+        ul 
+            li 
+                if(!isValidated)
+                    a(class="active" href="home") Home
+                -else{
+                    -const url = "user/" + _id;
+                    a(class="active" href="#") Profile
+                -}
+            li 
+                a(href="#") Services & Conditions
+            li 
+                a(href="#") Contact Us 
+            li 
+                a(href="#" class="em") Emergency  
+            li 
+                if(!isValidated)
+                    a(href="authenticate" class="signin") Sign up/Log in
+                else 
+                    a(href="../authenticate/logout" class="signin") Logout
+        div(class="logo")
+            a(href="/") 
+                img(src="/pimg/logopro.png" alt="ICU soon")
+
+    <div class="wrapper">
+        <div class="left">
+            <img src="/pimg/user.jpg" alt="user" width="160" height="160">
+            h3= result.first_name.toUpperCase() + " " + result.last_name.toUpperCase()
+            p(style="margin-bottom:10px")
+                | <b>Age: </b> 
+                = result.age + " years"
+            p 
+                | <b>ACCOUNT TYPE: </b>
+                = result.user_type.toUpperCase()
+            //- <p>KNEE PATIENT</p>
+
+        </div>
+        <div class="right">
+            <div class="info">
+                <h2>USER DETAILS</h2>
+                <div class="info_data">
+                    <div class="data">
+                        <h3>Email</h3>
+                        p= result.email
+                    </div>
+                    <div class="data">
+                        <h3>Phone</h3>
+                        p= result.contact_number
+                    </div>
+
+
+
+                </div>
+                <div class="info_data">
+                    <div class="data">
+                        <h3>City</h3>
+                        p= result.city
+                    </div>
+                    <div class="data">
+                        <h3>Gender</h3>
+                        p= result.gender
+                    </div>
+
+                </div>
+                <br>
+
+                <div class="projects">
+                    <h2>REGISTRATION DETAILS</h2>
+                    <div class="projects_data">
+                        <div class="data">
+                            <h3>Registration ID</h3>
+                            p= "20BCS700" + result.registration_id
+                        </div>
+                        <div class="data">
+                            <h3>Date</h3>
+                            p= result.date_registered
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects">
+                    <h2>CURRENT APPOINTMENT DETAILS</h2>
+                    <div class="projects_data">
+                        <div class="data">
+                            <h3>Appointed Doctor</h3>
+                            <p>Dr. Ahana Sharma</p>
+                        </div>
+                        <div class="data">
+                            <h3>Date and Time of Visit</h3>
+                            <p>10th July 2021(10:30 A.M)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="projects">
+                    <h2>PREVIOUS DETAILS</h2>
+                    <div class="projects_data">
+                        <div class="data">
+                            <h3>Doctors Visited</h3>
+                            <p>Dr. kaushal Rana</p>
+                            <p>Dr. Mishi Dutt</p>
+                            <p>Dr. Allen</p>
+                        </div>
+                        <div class="data">
+                            <h3>Date</h3>
+                            <p>8th jan 2021</p>
+                            <p>30th Sep 2020</p>
+                            <p>19th feb 2020</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="social_media">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        -if(booked == 'true') {
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    p(style="text-align:center") Appointment booked successfully.
+                    button(type="submit" class="myBtn" id="hide") Ok
+                </div>
+            </div>
+        -}
+        
+
+        script. 
+            var modal = document.getElementById("myModal");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            var hide = document.getElementById("hide");
+            
+            hide.onclick = function() {
+                modal.style.display = "none";
+            }
+</body>
+
+</html>

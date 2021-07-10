@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ICU soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../appointment_details.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Merienda:wght@700&family=Righteous&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+    //- <nav>
+    //-     <input type="checkbox" id="check">
+
+    //-     <label for="check" class="checkbtn">
+    //-         <i class="fas fa-bars"></i>
+    //-     </label>
+    //-     <ul>
+    //-         <li><a class="active" href="P1doc.html">Home</a></li>
+    //-         <li><a href="#">Services & Condition</a></li>
+    //-         <li><a href="#">Contact Us</a></li>
+    //-         <li><a href="#" class="em">Emergency</a></li>
+    //-         <li><a href="form.html" class="signin">Sign up/Log in</a></li>
+    //-     </ul>
+    //-     <div class="logo">
+    //-         <img src="pimg/logopro.png" alt="ICU soon">
+    //-     </div>
+
+    nav
+        input(type="checkbox" id="check")
+        label(for="check" class="checkbtn")
+            i(class="fas fa-bars")
+        ul 
+            li 
+                if(!isValidated)
+                    a(class="active" href="/") Home
+                -else{
+                    -const url = "../user/" + _id;
+                    a(class="active" href=url) Profile
+                -}
+            li 
+                a(href="#") Services & Conditions
+            li 
+                a(href="#") Contact Us 
+            li 
+                a(href="#" class="em") Emergency  
+            li 
+                if(!isValidated)
+                    a(href="authenticate" class="signin") Sign up/Log in
+                else 
+                    a(href="/authenticate/logout" class="signin") Logout
+        div(class="logo")
+            a(href="/") 
+                img(src="../pimg/logopro.png" alt="ICU soon")
+
+    .details(style="display:flex; justify-content:center; width: 100%; align-items: center; height: 50vh;") 
+        .box-1(style="margin-right: 50px;")
+            h2 USER
+            p= result[0].first_name + " " + result[0].last_name
+            p= "Phone: " + result[0].contact_number
+            p= "Age: " + result[0].age
+        .box-2 
+            h2 DOCTOR
+            p= result2[0].first_name + " " + result2[0].last_name
+            p= "Clinic: " + result2[0].clinic_name
+            p= "Fee: " + result2[0].fee
+            p= "Address: " + result2[0].clinic_name + " " + result2[0].city + ", " + result2[0].state + ", " + result2[0].pin_code
+    
+    form(action="./confirm" method="POST")
+        input(type="number" name="doctor_id" value=`${result2[0].registration_id}` style="display:none")
+        input(type="text" name="appointment_date" value=`${date}` style="display:none")
+        input(type="number" name="fee" value=`${result2[0].fee}` style="display:none")
+        button(type="submit" style="display:block; margin:auto;") Confirm Appointment
+
+    
+
+
+</body>
+
+</html>

@@ -16,30 +16,33 @@ head
     link(rel="stylesheet" href="homecss")
 
 body 
-    nav
-        input(type="checkbox" id="check")
-        label(for="check" class="checkbtn")
-            i(class="fas fa-bars")
-        ul 
-            li 
-                if(!isValidated)
-                    a(class="active" href="/") Home
-                else 
-                    a(class="active" href="#") Profile
-            li 
-                a(href="#") Services & Conditions
-            li 
-                a(href="#") Contact Us 
-            li 
-                a(href="#" class="em") Emergency  
-            li 
-                if(!isValidated)
-                    a(href="authenticate" class="sigin") Sign up/Log in
-                else 
-                    a(href="authenticate/logout" class="sigin") Logout
-        div(class="logo")
-            a(href="/") 
-                img(src="pimg/logopro.png" alt="ICU soon")
+    //- nav
+    //-     input(type="checkbox" id="check")
+    //-     label(for="check" class="checkbtn")
+    //-         i(class="fas fa-bars")
+    //-     ul 
+    //-         li 
+    //-             if(!isValidated)
+    //-                 a(class="active" href="/") Home
+    //-             else 
+    //-                 a(class="active" href="#") Profile
+    //-         li 
+    //-             a(href="#") Services & Conditions
+    //-         li 
+    //-             a(href="#") Contact Us 
+    //-         li 
+    //-             a(href="#" class="em") Emergency  
+    //-         li 
+    //-             if(!isValidated)
+    //-                 a(href="authenticate" class="signin") Sign up/Log in
+    //-             else 
+    //-                 a(href="authenticate/logout" class="signin") Logout
+    //-     div(class="logo")
+    //-         a(href="/") 
+    //-             img(src="pimg/logopro.png" alt="ICU soon")
+
+    include navigation.pug
+    
     <section class="s1">
             <h1>We care as we cure</h1><br>
             <p>Proving medical assistant in few clicks, connected to 3000+ top doctors from all over the World,ready to treat, ready to cure. <br><br>
@@ -51,8 +54,7 @@ body
     </section>
 
     <section class="s2">
-        <h1 class="s2h" data-aos="fade-top">&#9830;&nbsp;WE GAVE UP LIFE, TO LEARN HOW TO SAVE
-            || OTHERS&nbsp;&#9830;&nbsp;&||| nbsp;</h1>
+        <h1 class="s2h" data-aos="fade-top">&#9830;&nbsp;WE GAVE UP LIFE, TO LEARN HOW TO SAVE OTHERS</h1>
         <div class="services">
             <div class="box" data-aos="fade-right">
                 <img src="pimg/doc2.jpg" alt="">

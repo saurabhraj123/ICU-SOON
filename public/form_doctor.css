@@ -6,7 +6,7 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  height: 100vh;
+  height: 180vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -142,4 +142,48 @@ form .button input:hover {
   .container .content .category {
     flex-direction: column;
   }
+}
+
+form .user-details .input-boxes {
+  margin-bottom: 15px;
+  width: calc(100% - 20px);
+}
+form .user-details .input-boxess {
+  margin-bottom: 15px;
+  width: calc(100% - 20px);
+}
+textarea {
+  margin-bottom: 15px;
+  width: calc(100% - 20px);
+}
+form .input-boxes .input-boxess span.details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-boxes input {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-boxess input {
+  height: 145px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-boxes .input-boxess input:focus,
+.user-details .input-boxes .input-boxess input:valid {
+  border-color: #9b59b6;
 }
