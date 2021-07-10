@@ -58,7 +58,7 @@
                 if(!isValidated)
                     a(href="authenticate" class="signin") Sign up/Log in
                 else 
-                    a(href="../authenticate/logout" class="signin") Logout
+                    a(href="/authenticate/logout" class="signin") Logout
         div(class="logo")
             a(href="/") 
                 img(src="/pimg/logopro.png" alt="ICU soon")
@@ -124,11 +124,18 @@
                     <div class="projects_data">
                         <div class="data">
                             <h3>Appointed Doctor</h3>
-                            <p>Dr. Ahana Sharma</p>
+                            -for(let i=0; i<results.length; i++){
+                                -if (results[i].status == 2){
+                                    p= results[i].first_name + " " + results[i].last_name
+                                -}
+                            -}
                         </div>
                         <div class="data">
                             <h3>Date and Time of Visit</h3>
-                            <p>10th July 2021(10:30 A.M)</p>
+                            -for(let i=0; i<results.length; i++){
+                                if (results[i].status == 2)
+                                    p= results[i].appointment_date
+                            -}
                         </div>
                     </div>
                 </div>
@@ -138,15 +145,17 @@
                     <div class="projects_data">
                         <div class="data">
                             <h3>Doctors Visited</h3>
-                            <p>Dr. kaushal Rana</p>
-                            <p>Dr. Mishi Dutt</p>
-                            <p>Dr. Allen</p>
+                            -for(let i=0; i<results.length; i++){
+                                if (results[i].status == 1)
+                                    p= results[i].first_name + " " + results[i].last_name
+                            -}
                         </div>
                         <div class="data">
                             <h3>Date</h3>
-                            <p>8th jan 2021</p>
-                            <p>30th Sep 2020</p>
-                            <p>19th feb 2020</p>
+                            -for(let i=0; i<results.length; i++){
+                                if (results[i].status == 1)
+                                    p= results[i].appointment_date
+                            -}
                         </div>
                     </div>
                 </div>
