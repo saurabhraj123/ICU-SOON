@@ -40,7 +40,7 @@
                 if(!isValidated)
                     a(class="active" href="/") Home
                 -else{
-                    -const url = "/user/" + _id;
+                    -const url = "../user/" + _id;
                     a(class="active" href=url) Profile
                 -}
             li 
@@ -56,7 +56,7 @@
                     a(href="/authenticate/logout" class="signin") Logout
         div(class="logo")
             a(href="/") 
-                img(src="../pimg/logopro.png" alt="ICU soon")
+                img(src="/pimg/logopro.png" alt="ICU soon")
 
     .details(style="display:flex; justify-content:center; width: 100%; align-items: center; height: 50vh;") 
         .box-1(style="margin-right: 50px;")
@@ -71,11 +71,22 @@
             p= "Fee: " + result2[0].fee
             p= "Address: " + result2[0].clinic_name + " " + result2[0].city + ", " + result2[0].state + ", " + result2[0].pin_code
     
-    form(action="./confirm" method="POST")
+    -
+     var link;
+     if(status == 2)
+        link = `/appointment/appointed/?user_id=${result[0].registration_id}`;
+     else 
+        link = `/users/${result2[0].user_id}`;
+
+    form(action=`/appointment/appointed/?user_id=${result[0].registration_id}` method="POST")
         input(type="number" name="doctor_id" value=`${result2[0].registration_id}` style="display:none")
         input(type="text" name="appointment_date" value=`${date}` style="display:none")
         input(type="number" name="fee" value=`${result2[0].fee}` style="display:none")
-        button(type="submit" style="display:block; margin:auto;") Confirm Appointment
+        //- form(action=`/appointment/appointed/?${result[0].registration_id}` method="POST")
+        -if(status == 2)
+            button(type="submit" style="display:block; margin:auto;") Mark as Complete
+        -else if(status == 1)
+            button(type="submit" style="display:block; margin:auto;") Go to Profile
 
     
 

@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Merienda:wght@700&family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<link rel="stylesheet" href="/profile_doctor.css">
+
+<body>
+
+    //- <nav>
+    //-     <input type="checkbox" id="check">
+
+    //-     <label for="check" class="checkbtn">
+    //-         <i class="fas fa-bars"></i>
+    //-     </label>
+    //-     <ul>
+    //-         <li><a class="active" href="#">Home</a></li>
+    //-         <li><a href="#">Services & Condition</a></li>
+    //-         <li><a href="#">Contact Us</a></li>
+    //-         <li><a href="#" class="em">Emergency</a></li>
+    //-         <li><a href="form.html" class="signin">Sign up/Log in</a></li>
+    //-     </ul>
+    //-     <div class="logo">
+    //-         <img src="logopro.png" alt="ICU soon">
+    //-     </div>
+
+    //- </nav>
+
+    //- include navigation.pug
+
+    nav
+        input(type="checkbox" id="check")
+        label(for="check" class="checkbtn")
+            i(class="fas fa-bars")
+        ul 
+            li 
+                -if(!isvalidated)
+                    a(class="active" href="home") Home
+                -else{
+                    -const url = "user/" + _id;
+                    a(class="active" href="") Profile
+                -}
+            li 
+                a(href="#") Services & Conditions
+            li 
+                a(href="#") Contact Us 
+            li 
+                a(href="#" class="em") Emergency  
+            li 
+                if(isValidated)
+                    a(href="authenticate" class="signin") Sign up/Log in
+                    //- p raj
+                else
+                    a(href="/authenticate/logout" class="signin") Logout
+                
+        div(class="logo")
+            a(href="/") 
+                img(src="/pimg/logopro.png" alt="ICU soon")
+
+
+    //- Function to convert 24hour time to 12 hour time format
+    -
+     function tConvert (time) {
+        // Check correct time format and split into components
+        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+        if (time.length > 1) { // If time format correct
+            time = time.slice (1);  // Remove full string match value
+            time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+            time[0] = +time[0] % 12 || 12; // Adjust hours
+        }
+        return time.join (''); // return adjusted time or original string
+        }
+    -
+     let queue = 0;
+     for(let i=0; i<results.length; i++) {
+         if(results[i].status == 2)
+            queue++;
+     }
+     let served = results.length - queue;
+     let earning = served * result.fee;
+     let x = 100;
+
+
+    <section class="main">
+        <div class="wrapper">
+            <div class="left">
+                <img src="/pimg/docprofile.jpg" alt="user" width="180" height="200" style="margin-top: 30px;">
+                <br>
+                h3= result.first_name + " " + result.last_name
+                h4= "Specialization: " + result.specialization
+                h4= "User Type: Doctor" 
+                <p>__________</p><br>
+                //- <h4><strong>Monthly earning: </strong>
+                //-     = "₹ " + result.fee
+                </h4>
+                <h4><strong>Total earning: </strong> 
+                    = "₹ " + earning
+                </h4>
+            </div>
+
+
+            <div class="right">
+                <div class="info">
+                    <h2>PERSONAL PROFILE</h2>
+                    <div class="info_data">
+                        <div class="data">
+                            <h3>Email</h3>
+                            p= result.email
+                        </div>
+                        <div class="data">
+                            <h3>Contact no.</h3>
+                            p= result.contact_number
+                        </div>
+
+
+
+                    </div>
+                    <div class="info_data">
+                        <div class="data">
+                            <h3>Location</h3>
+                            p= result.city + ", " + result.state
+                        </div>
+                        <div class="data">
+                            <h3>Gender</h3>
+                            <p>Male</p>
+                        </div>
+
+                    </div>
+                    <br>
+
+                    <div class="projects">
+                        <h2>DOCTOR DETAILS</h2>
+                        <div class="projects_data">
+                            <div class="data">
+                                <h3>Registration ID</h3>
+                                p= "20ICU71" + result.registration_id
+                            </div>
+                            <div class="data">
+                                <h3>Clinic Name</h3>
+                                p= result.clinic_name
+                            </div>
+                        </div>
+
+
+                        <div class="projects_data">
+                            <div class="data">
+                                <h3>Work timing</h3>
+                                p= tConvert(result.available_from.slice(0,-3)) + " - " + tConvert(result.available_till.slice(0,-3))
+                            </div>
+                            <div class="data">
+                                <h3>Fees</h3>
+                                p= "₹ " + result.fee 
+                            </div>
+                        </div>
+
+                        <div class="projects_data">
+                            <div class="data">
+                                <h3>Total patients served</h3>
+                                //- <p>104</p>
+                                p= served
+                            </div>
+                            <div class="data">
+                                <h3>Patient in Queue</h3>
+                                //- <p>15</p>
+                                p= queue
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projects">
+                        <h2>CURRENT PATIENT DETAILS</h2>
+                        <div class="projects_data">
+                            <div class="data">
+                                <h3>Patient Name</h3>
+                                -for(let i=0; i<results.length; i++){
+                                if (results[i].status == 2)
+                                    p= results[i].first_name + " " + results[i].last_name
+                                
+                                -}
+                            </div>
+                            <div class="data">
+                                <h3>Date</h3>
+                                -for(let i=0; i<results.length; i++){
+                                if (results[i].status == 2)
+                                    p= results[i].appointment_date.toString().slice(0, -39)
+                                    //- p= results[i].user_id
+                                
+                                -}
+                            </div>
+                            <div class="data">
+                                <h3>Patient info</h3>
+                                -for(let i=0; i<results.length; i++){
+                                if (results[i].status == 2)
+                                   p 
+                                    a(href=`/user/${result.registration_id}/more/?user_id=${results[i].user_id}&status=${results[i].status}`) More details
+                                
+                                -}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projects">
+                        <h2>PREVIOUS PATIENT DETAILS</h2>
+                        <div class="projects_data">
+                            <div class="data">
+                                <h3>Patient Name</h3>
+                                -for(let i=0; i<results.length; i++){
+                                    if (results[i].status == 1)
+                                        p= results[i].first_name + " " + results[i].last_name
+                                
+                                -}
+                            </div>
+
+                            <div class="data">
+                                <h3>Date</h3>
+                                -for(let i=0; i<results.length; i++){
+                                    if (results[i].status == 1)
+                                        p= p= results[i].appointment_date.toString().slice(0, -39)
+                                -}
+                            </div>
+
+                            <div class="data">
+                                <h3>Patient info</h3>
+                                -for(let i=0; i<results.length; i++){
+                                    if (results[i].status == 1)
+                                        //- <p><a href="#">More details</a></p>
+                                        p 
+                                            a(href=`/user/${result.registration_id}/more/?user_id=${results[i].user_id}&status=${results[i].status}`) More details
+                                -}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="social_media">
+                        <ul>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            -if(changes == 'yes') {
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    p(style="text-align:center") Appointment booked successfully.
+                    button(type="submit" class="myBtn" id="hide") Ok
+                </div>
+            </div>
+        -}
+        
+
+        script. 
+            var modal = document.getElementById("myModal");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            var hide = document.getElementById("hide");
+            
+            hide.onclick = function() {
+                modal.style.display = "none";
+            }
+    </section>
+</body>
+
+</html>

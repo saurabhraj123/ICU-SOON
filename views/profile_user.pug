@@ -46,7 +46,7 @@
                     a(class="active" href="home") Home
                 -else{
                     -const url = "user/" + _id;
-                    a(class="active" href="#") Profile
+                    a(class="active" href="") Profile
                 -}
             li 
                 a(href="#") Services & Conditions
@@ -71,8 +71,8 @@
                 | <b>Age: </b> 
                 = result.age + " years"
             p 
-                | <b>ACCOUNT TYPE: </b>
-                = result.user_type.toUpperCase()
+                | <b>Account Type: </b>
+                = result.user_type.charAt(0).toUpperCase() + "ser"
             //- <p>KNEE PATIENT</p>
 
         </div>
@@ -110,11 +110,11 @@
                     <div class="projects_data">
                         <div class="data">
                             <h3>Registration ID</h3>
-                            p= "20BCS700" + result.registration_id
+                            p= "20ICU70" + result.registration_id
                         </div>
                         <div class="data">
                             <h3>Date</h3>
-                            p= result.date_registered
+                            p= result.date_registered.toString().slice(0, -39)
                         </div>
                     </div>
                 </div>
@@ -131,17 +131,26 @@
                             -}
                         </div>
                         <div class="data">
-                            <h3>Date and Time of Visit</h3>
+                            <h3>Appointment Date</h3>
                             -for(let i=0; i<results.length; i++){
                                 if (results[i].status == 2)
-                                    p= results[i].appointment_date
+                                    -var x = results[i].appointment_date.toString().slice(0,-39)
+                                    p= x
+                            -}
+                        </div>
+                        <div class="data">
+                            <h3>More Details</h3>
+                            -for(let i=0; i<results.length; i++){
+                                if (results[i].status == 2)
+                                    p
+                                        <p><a href="#">Click Here</a></p>
                             -}
                         </div>
                     </div>
                 </div>
 
                 <div class="projects">
-                    <h2>PREVIOUS DETAILS</h2>
+                    <h2>History</h2>
                     <div class="projects_data">
                         <div class="data">
                             <h3>Doctors Visited</h3>
@@ -154,7 +163,15 @@
                             <h3>Date</h3>
                             -for(let i=0; i<results.length; i++){
                                 if (results[i].status == 1)
-                                    p= results[i].appointment_date
+                                    p= results[i].appointment_date.toString().slice(0, -39)
+                            -}
+                        </div>
+                        <div class="data">
+                            <h3>More Details</h3>
+                            -for(let i=0; i<results.length; i++){
+                                if (results[i].status == 1)
+                                    p
+                                        a(href="#") Click Here
                             -}
                         </div>
                     </div>

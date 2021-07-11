@@ -89,27 +89,61 @@ router.get('/:id', check_form, (req, res) => {
     if(req.cookies.jwt){
         db.query(`SELECT * FROM ${decodedValue.user_type}s JOIN registrations USING(registration_id) WHERE registration_id = ${decodedValue._id}`, (err, result) => {
 
-            if(err) return res.send('Error in first query..');
+            if(err) return res.send(err);
 
-            db.query(`SELECT d.first_name, d.last_name, a.appointment_date, a.status, a.appointment_id FROM ${decodedValue.user_type}s JOIN registrations USING(registration_id) JOIN appointment a ON ${decodedValue.user_type}s.registration_id = a.${decodedValue.user_type}s_registration_id JOIN doctors d ON a.doctors_registration_id = d.registration_id WHERE ${decodedValue.user_type}s.registration_id = ${decodedValue._id} ORDER BY a.appointment_id DESC `, (err2, result2) => {
-                
-                if(err2) return res.send(err2);
+            if(decodedValue.user_type == 'user') {
+                db.query(`SELECT d.first_name, d.last_name, DATE(a.appointment_date) AS appointment_date, a.status, a.appointment_id FROM ${decodedValue.user_type}s JOIN registrations USING(registration_id) JOIN appointment a ON ${decodedValue.user_type}s.registration_id = a.${decodedValue.user_type}s_registration_id JOIN doctors d ON a.doctors_registration_id = d.registration_id WHERE ${decodedValue.user_type}s.registration_id = ${decodedValue._id} ORDER BY a.appointment_id DESC `, (err2, result2) => {
+                    
+                    if(err2) return res.send(err2);
 
-                console.log(result[0]);
-                console.log("RESULT: " + result2);
-                // if(typeof(result2 == 'undefined'))
-                //     result2 = [];
-                console.log("RESULT: " + result2);
-                // res.send(result2);
-                
-                console.log('Url Query: ' + req.query.booked);
-                res.render('profile_user', {isValidated:true, result:result[0], results: result2, booked: req.query.booked});
-            })
-            
+                    console.log(result[0]);
+                    console.log("RESULT: " + result2);
+                    // if(typeof(result2 == 'undefined'))
+                    //     result2 = [];
+                    console.log("RESULT: " + result2);
+                    console.log("Appointment_date: " + result2[0].appointment_date);
+                    // res.send(result2);
+                    
+                    console.log('Url Query: ' + req.query.booked);
+                    res.render('profile_user', {isValidated:true, result:result[0], results: result2, booked: req.query.booked});
+                })
+            } else {
+                // console.log('he  is a doctor');   
+                var isValidated = true;
+                console.log('isValidated: ' + isValidated);
+
+                db.query(`call doctor_patient_details(${decodedValue._id})`, (err, result2) => {
+
+                    if(err) return res.send(err);
+                    // console.log('reSULTS' + result2);
+                    // res.send(result2[0][1].first_name);
+                    res.render('profile_doctor', {isvalidated:isValidated, result:result[0],results:result2[0]});
+                })
+            }
         })
         
     }else
         res.redirect('../authenticate')
+})
+
+router.get('/:id/more', check_form, (req, res) => {
+
+    if(req.cookies.jwt) {
+        var decodedValue = decode(req.cookies.jwt);
+        db.query(`SELECT * FROM users where registration_id=${req.query.user_id}`, (err, result) => {
+            if(err) return res.send(err);
+
+            db.query(`SELECT * FROM doctors where registration_id = ${decodedValue._id}`, (err2, result2) => {
+                
+                if(err2) return res.send(err2);
+
+                res.send(result);
+                res.render('show_more', {isValidated:true, result: result, result2: result2, status: req.query.status});
+            })
+        })
+    }else{
+        res.redirect('/authenticate');
+    }
 })
 
 module.exports = router;

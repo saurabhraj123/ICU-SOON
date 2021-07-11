@@ -55,7 +55,7 @@ router.get('/:id', check_form, (req, res) => {
             db.query(`SELECT * FROM doctors where registration_id = ${req.params.id} `, (err, result) => {
                 if(err) return res.send(err);
                 
-                db.query(`SELECT status from appointment WHERE doctors_registration_id = ${req.params.id} AND users_registration_Id = ${decodedValue._id}`, (err2, status) => {
+                db.query(`SELECT status from appointment WHERE doctors_registration_id = ${req.params.id} AND users_registration_Id = ${decodedValue._id} AND status = 2`, (err2, status) => {
 
                     if(err2) return res.send(err2);
                     console.log('Status: ' + typeof(status[0]));
@@ -133,5 +133,22 @@ router.post('/confirm', check_form, (req, res) => {
     }
 })
 
+router.post('/appointed', check_form, (req, res)=> {
+
+    if(req.cookies.jwt) {
+        let decodedValue = decode(req.cookies.jwt);
+        if(decodedValue.user_type = 'doctor') {
+            db.query(`UPDATE appointment set status = 1 WHERE doctors_registration_id = ${decodedValue._id} AND users_registration_id=${req.query.user_id} AND status =2`, (err, result) => {
+                if(err) return res.send(err);
+
+                res.redirect(`/user/${decodedValue._id}/?changed=yes`);
+            })
+        }else {
+            res.redirect(`user/${decodedValue._id}`);
+        }
+    }else {
+        res.redirect('/authenticate');
+    }
+})
 
 module.exports = router;
