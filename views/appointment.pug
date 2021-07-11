@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    script(type="text/javascript" src="/form_doctor.js") 
 </head>
 
 <body>
@@ -46,9 +47,9 @@
             li 
                 a(href="#") Services & Conditions
             li 
-                a(href="#") Contact Us 
+                a(href="#" class="em") Notifications  
             li 
-                a(href="#" class="em") Emergency  
+                a(href="#") Contact Us 
             li 
                 if(!isValidated)
                     a(href="authenticate" class="signin") Sign up/Log in
@@ -69,22 +70,45 @@
                 Choose from the best doctors in your city, Book now!!
                 <p>______________________________________________________</p>
             </div>
-            <div class="form">
+            <form class="form" action="" method="GET">
                 <h1>Lets get started, select your city</h1><br>
 
+                //- <div class="select">
+                //-     <select name="format" id="format">
+                //-         <option selected >Select city</option>
+                //-         <option value="Chandi">Chandigarh</option>
+                //-         <option value="Delhi">Delhi</option>
+                //-         <option value="jaipur">Bihar</option>
+                //-         <option value="kanpur">Jharkhand</option>
+                //-         <option value="mumbai">Mumbai</option>
+                //-         <option value="ranchi">Ranchi</option>
+                //-     </select>
+                //- </div>
+
                 <div class="select">
-                    <select name="format" id="format">
-                        <option selected disabled>Select city</option>
-                        <option value="agra">All</option>
-                        <option value="Chandi">Chandigarh</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="jaipur">Bihar</option>
-                        <option value="kanpur">Jharkhand</option>
-                        <option value="mumbai">Mumbai</option>
-                        <option value="ranchi">Ranchi</option>
-                    </select>
+                <span class="details"><b>State:</b></span>
+                <select name="country" id="country" onchange="setStates();">
+                <option value="Punjab">Punjab</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Bihar">Bihar</option>
+                </select>
                 </div>
-            </div>
+
+                <div class="input-box select">
+                <span class="details details2"><b>City:</b></span>
+                <select name="state" id="state" ;>
+                    <option value="">Select a City</option>
+                </select>
+                </div>
+
+                //- <form action="" method="GET">
+                <div class="button">
+                    <input type="submit" id="filter" value="Search">
+                    a(href="/appointment" class="clear_filter") Clear
+                </div>      
+                //- </form>
+
+            </form>
         </div>
         <div class="s1_img">
             <img src="/pimg/BookA3.png" alt="" height="430" width="740">
@@ -105,9 +129,14 @@
         return time.join (''); // return adjusted time or original string
         }
     
+    -let mb='0px';
+    -if(result.length == 0)
+        -mb = '50px';
+
+    p(style=`font-size: 25px; margin-left: 35px; margin-top: 20px; margin-bottom:${mb}`)= result.length + " results found.."
     -for(let i=0; i<result.length; i++) {
         -let x = `https://source.unsplash.com/random/32${i}x316`;
-        <section class="s2">
+        section(class="s2" id=`s2_${i}`)
             <div class="s2_img">
                 //- <img src="pimg/BAdoc1.jpg" alt="">
                 //- img(src="https://source.unsplash.com/random", alt="")
@@ -156,6 +185,9 @@
 
         </section>
     -}
+
+    //- -if(result.length == 0)
+    //-             h1(style="height: 30vh; display:flex;align-items:center; justify-content:center;") No Data Found
 
 
 </body>

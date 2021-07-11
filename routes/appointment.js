@@ -30,10 +30,15 @@ router.get('/', check_form, (req, res) => {
     if(req.cookies.jwt)
         var decodedValue = decode(req.cookies.jwt);
 
-    db.query(`SELECT * from doctors`, (err, result) => {
-        if(err) return res.send('Error while querying the database..');
+    let extraQuery = '';
+    if(req.query.country && req.query.state)
+        extraQuery = `WHERE city = '${req.query.state}'`
+    
 
-        // console.log(result);
+    db.query(`SELECT * from doctors ${extraQuery}`, (err, result) => {
+        if(err) return res.send(err);
+
+        console.log('Result lenght: ' + result.length);
         let isValidated = false;
         if(req.cookies.jwt)
             isValidated = true;
