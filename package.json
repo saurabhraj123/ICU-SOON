@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "engines": {
+	  "node": "12.8.2"
+  }
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,9 +17,11 @@
     "@hapi/joi": "^15.0.3",
     "atob": "^2.1.2",
     "bcrypt": "^5.0.1",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "pug": "^3.0.2"

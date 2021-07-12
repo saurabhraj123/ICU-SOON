@@ -1,3 +1,6 @@
+head
+    link(rel="stylesheet" href="/notification.css")
+
 nav
         input(type="checkbox" id="check")
         label(for="check" class="checkbtn")
@@ -7,13 +10,13 @@ nav
                 if(!isValidated)
                     a(class="active" href="/") Home
                 -else{
-                    -const url = "user/" + _id;
+                    -const url = "/user/" + _id;
                     a(class="active" href=url) Profile
                 -}
             li 
                 a(href="#") Services & Conditions
             li 
-                a(href="#" class="em") Notifications  
+                a(href="#" class="em" onClick="toggleNotifi()") Notifications  
             li 
                 a(href="#") Contact Us 
             li 
@@ -23,4 +26,53 @@ nav
                     a(href="authenticate/logout" class="signin") Logout
         div(class="logo")
             a(href="/") 
-                img(src="../pimg/logopro.png" alt="ICU soon")
+                img(src="/pimg/logopro.png" alt="ICU soon")
+-
+     function tConvert (time) {
+        // Check correct time format and split into components
+        time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+        if (time.length > 1) { // If time format correct
+            time = time.slice (1);  // Remove full string match value
+            time[5] = +time[0] < 12 ? ' AM' : ' PM'; // Set AM/PM
+            time[0] = +time[0] % 12 || 12; // Adjust hours
+        }
+        return time.join (''); // return adjusted time or original string
+        }
+-if(typeof(notification) != 'undefined')
+    <div class="notifi-box" id="box">
+    h2 Notifications:
+        span= "  " + notification.length
+    -for(let i=0; i<notification.length; i++){
+        <div class="notifi-item">
+            <div class="text">
+                -if(notification[i].user_type == 'user'){
+                    h4= "Share Your Experience "
+                    p= notification[i].d_first_name + " " + notification[i].d_last_name + " marked this appointment as complete. " + notification[i].message + " " + notification[i].d_first_name
+                    p= tConvert(notification[i].date.toString().slice(0,-31))
+                -}else {
+                    a(href = `/user/${notification[i].d_registration_id}/more/?user_id=${notification[i].u_registration_id}&status=1`)
+                        h4 New Appointment
+                        p= notification[i].u_first_name + " " + notification[i].u_last_name + " booked an appointment with you. Click here to know more.."
+                        p= tConvert(notification[i].date.toString().slice(0,-31))
+                -}
+            </div> 
+        </div>
+    -}
+</div>
+
+script.
+    var box = document.getElementById('box');
+    var down = false;
+
+    function toggleNotifi() {
+        if(down) {
+            box.style.height = '0px';
+            box.style.opacity = 0;
+            down = false;
+        }else {
+            box.style.height = '510px';
+            box.style.opacity = 1;
+            down = true;
+        }
+    }

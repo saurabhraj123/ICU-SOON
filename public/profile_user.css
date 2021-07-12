@@ -131,21 +131,31 @@ nav ul li a:active {
 /* form */
 body {
   /* background: linear-gradient(to left,#6572ec,#7daceb); */
-  background: url(pimg/profileback.jpg) no-repeat center center/cover;
-  height: 900px;
+  /* background: url(pimg/profileback.jpg) no-repeat center center/cover; */
+  /* background: url(pimg/profileback.jpg) center center/cover; */
+  background: linear-gradient(to left, #0a69d4, #b6d3fa);
+  /* height: 900px; */
 }
 
-.wrapper {
+/* .wrapper {
   position: absolute;
-  /* top: 75%; */
-  top: 480px;
+  top: 92%;
+   top: 580px;
   left: 50%;
-  /* left: 400px; */
+  left: 400px;
   transform: translate(-50%, -50%);
   width: 900px;
-  height: 730px;
+  min-height: 750px;
   display: flex;
   box-shadow: 0 2px 10px 0 rgb(71, 86, 170);
+} */
+
+.wrapper {
+  display: flex;
+  width: 900px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .wrapper .left {

@@ -130,15 +130,15 @@ router.get('/:id/more', check_form, (req, res) => {
 
     if(req.cookies.jwt) {
         var decodedValue = decode(req.cookies.jwt);
-        db.query(`SELECT * FROM users where registration_id=${req.query.user_id}`, (err, result) => {
+        db.query(`SELECT * FROM users JOIN registrations on (users.registration_id) where users.registration_id=${req.query.user_id} `, (err, result) => {
             if(err) return res.send(err);
 
             db.query(`SELECT * FROM doctors where registration_id = ${decodedValue._id}`, (err2, result2) => {
                 
                 if(err2) return res.send(err2);
 
-                res.send(result);
-                res.render('show_more', {isValidated:true, result: result, result2: result2, status: req.query.status});
+                // res.send(result);
+                res.render('show_more', {isValidated:true, result: result, result2: result2, _id: decodedValue._id, status: req.query.status, user_id: req.query.user_id});
             })
         })
     }else{

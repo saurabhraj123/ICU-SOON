@@ -127,3 +127,189 @@ nav ul li a:active {
     left: 0;
   }
 }
+
+/* HEAD */
+
+.head {
+  color: whitesmoke;
+  text-shadow: 3px 3px 5px rgb(58, 58, 58);
+  width: 100%;
+  text-align: center;
+  font-size: 3.2rem;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 900;
+  padding: 10px;
+  /* background-color: rgb(32, 101, 228); */
+  /* margin: 2px 10px; */
+  background-image: linear-gradient(to left, rgb(92, 155, 243), rgb(1, 26, 73));
+}
+
+/* SECTION 1*/
+
+.s1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  display: flex;
+  /* background: url(pimg/MDback5.jpg) no-repeat center center/cover; */
+  height: 561px;
+
+  background-image: linear-gradient(
+    to left,
+    rgb(209, 224, 247),
+    rgb(240, 242, 245)
+  );
+
+  /* background-color: rgb(15, 84, 202); */
+}
+
+.left {
+  /* background-color: violet; */
+  /* background: url(pimg/MD1.png); */
+  padding-left: 40px;
+  width: 40%;
+}
+.left-1 {
+  display: flex;
+}
+.left-1 img {
+  /* border: 14px solid rgb(243, 237, 250); */
+  border-radius: 90px;
+  position: relative;
+  bottom: 35px;
+  width: 160px;
+  height: 160px;
+  margin-left: 60px;
+}
+
+.nameid {
+  width: 300px;
+  background-color: white;
+  margin-left: 20px;
+  height: 100px;
+  margin-top: 10px;
+  border-radius: 4px;
+  padding: 4px;
+  border: 2px solid gray;
+  border-left: 5px solid rgb(40, 23, 197);
+  box-shadow: 0 5px 10px 0 rgb(66, 89, 219);
+}
+
+.nameid h1 {
+  font-size: 1.46rem;
+  color: rgb(88, 118, 153);
+  padding-top: 10px;
+  padding-left: 16px;
+}
+
+.data1 h3 {
+  /* color: whitesmoke; */
+  background-color: white;
+  border-radius: 3px;
+  padding: 4px;
+  border: 2px solid gray;
+  border-left: 5px solid rgb(40, 23, 197);
+  font-size: 1.2rem;
+  color: rgb(88, 118, 153);
+  margin-top: 10px;
+  padding-left: 25px;
+}
+
+u {
+  color: rgb(8, 9, 104);
+}
+
+.left-detail {
+  margin-left: 60px;
+}
+
+/* DATA 2 */
+
+.right-detail {
+  box-shadow: 0 5px 13px 0 rgb(16, 31, 114);
+  background-image: linear-gradient(to left, rgb(92, 155, 243), rgb(1, 30, 83));
+  width: 750px;
+  height: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid blue;
+  border-radius: 5px;
+  /* box-shadow: 1px red; */
+}
+.right-detail h1 {
+  /* background-color: rgb(71, 144, 247); */
+  margin-left: 20px;
+  color: white;
+  font-size: 1.9rem;
+  padding: 10px;
+}
+
+.data2 h3 {
+  color: rgb(210, 210, 211);
+  /* background-color: white; */
+  border-radius: 4px;
+  padding: 4px;
+  border: 2px solid rgb(71, 144, 247);
+  border-left: 5px solid rgb(255, 255, 255);
+  font-size: 1.2rem;
+  /* color: rgb(88, 118, 153); */
+  margin: 0px 30px;
+  margin-top: 19px;
+
+  padding-left: 25px;
+}
+
+.data2 u {
+  color: white;
+}
+
+/* BUTTON */
+
+.click {
+  text-align: center;
+}
+button {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 900;
+  background-image: linear-gradient(
+    to left,
+    rgb(37, 125, 248),
+    rgb(4, 47, 128)
+  );
+  border-radius: 80px;
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  /* margin: 13px 0px; */
+  /* margin-top: 20px; */
+  cursor: pointer;
+  transition: all 0.5s;
+}
+form {
+  margin-top: 20px;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  /* margin-top: 10px; */
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}

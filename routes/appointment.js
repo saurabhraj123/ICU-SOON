@@ -146,7 +146,7 @@ router.post('/appointed', check_form, (req, res)=> {
             db.query(`UPDATE appointment set status = 1 WHERE doctors_registration_id = ${decodedValue._id} AND users_registration_id=${req.query.user_id} AND status =2`, (err, result) => {
                 if(err) return res.send(err);
 
-                res.redirect(`/user/${decodedValue._id}/?changed=yes`);
+                res.redirect(`/user/${decodedValue._id}/?changed=yes&user_id=${req.query.user_id}`);
             })
         }else {
             res.redirect(`user/${decodedValue._id}`);

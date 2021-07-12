@@ -9,6 +9,7 @@ app.set('view engine', 'pug');
 // Middlewares
 app.use(express.urlencoded({entended: false}))
 app.use(cookieParser());
+require('./startup/prod')(app);
 
 // Importing Routes
 const homeRouter           = require('./routes/home');

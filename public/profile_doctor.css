@@ -133,7 +133,7 @@ nav ul li a:active {
 body {
   background: linear-gradient(to left, #0a69d4, #b6d3fa);
   /* background: url(profileback.jpg) no-repeat center center/cover; */
-  height: 900px;
+  /* height: 900px; */
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
@@ -144,15 +144,23 @@ body {
     height: 600px;
   }
    */
-.wrapper {
+/* .wrapper {
   position: absolute;
   top: 710px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 1000px;
-  height: 1100px;
+  min-height: 1100px;
   display: flex;
   box-shadow: 0 2px 10px 0 rgb(71, 86, 170);
+} */
+
+.wrapper {
+  display: flex;
+  width: 900px;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .wrapper .left {
