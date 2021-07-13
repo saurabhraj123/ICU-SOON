@@ -250,11 +250,13 @@ nav ul li a:active {
 
 .s2 {
   width: 90%;
-  margin: 50px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
   text-align: center;
-  padding-top: 100px;
+  padding-top: 34px;
   background: url(pimg/3docback.jpg) no-repeat center center/cover;
-  box-shadow: -14px -14px 14px rgb(137, 148, 150);
+  /* box-shadow: -14px -14px 14px rgb(137, 148, 150); */
 }
 .s2h {
   font-size: 2rem;
@@ -279,7 +281,7 @@ nav ul li a:active {
   border-radius: 28px;
   margin-bottom: 20px;
   box-shadow: 8px 8px 8px rgb(1, 67, 153);
-  tansition: 0.5s;
+  /* tansition: 0.5s; */
 }
 .s2 .services .box:hover {
   box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.9);

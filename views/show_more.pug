@@ -103,14 +103,14 @@
                 </div>
                 <div class="click">
                      -var link;
-                     -if(status == 2){
+                     -if(status == 2 && user_type == 'doctor'){
                         -link = `/appointment/appointed/?user_id=${user_id}`;
                      -}else{ 
                         -link = `/user/${result2[0].registration_id}`;
                      -}
                      
                      -var type = "GET";
-                     -if(status == 2)
+                     -if(status == 2 && user_type == 'doctor')
                           -type = "POST";
                      
                      form(action=link method=type)
@@ -119,8 +119,12 @@
                         input(type="number" name="fee" value=`${result2[0].fee}` style="display:none")
                         //- form(action=`/appointment/appointed/?${result[0].registration_id}` method="POST")
                         -if(status == 2)
-                            button(type="submit" class="button" style="display:block; margin:auto;") 
-                                span Mark as Complete
+                            -if(user_type == 'doctor')
+                                button(type="submit" class="button" style="display:block; margin:auto;") 
+                                    span Mark as Complete
+                            -else 
+                                button(type="submit" class="button" style="display:block; margin:auto;") 
+                                    span Go to Profile
                         -else if(status == 1)
                             button(type="submit" class="button" style="display:block; margin:auto;") 
                                 span Go to Profile
@@ -137,7 +141,7 @@
             <h1>Treatment Details</h1>
             <div class="data2">
                 <h3><u>Doctor name:</u> 
-                    = "Dr. " + result2[0].first_name + result2[0].last_name
+                    = "Dr. " + result2[0].first_name + " " + result2[0].last_name
                 </h3>
                 <h3><u>Doctor ID:</u> 
                     = "20BCS71" + result2[0].registration_id

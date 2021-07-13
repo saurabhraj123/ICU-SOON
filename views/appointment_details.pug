@@ -44,19 +44,19 @@
                     a(class="active" href=url) Profile
                 -}
             li 
-                a(href="#") Services & Conditions
+                a(href="/services") Services & Conditions
             li 
                 a(href="#" class="em") Notifications  
             li 
                 a(href="#") Contact Us 
             li 
                 if(!isValidated)
-                    a(href="authenticate" class="signin") Sign up/Log in
+                    a(href="/authenticate" class="signin") Sign up/Log in
                 else 
                     a(href="/authenticate/logout" class="signin") Logout
         div(class="logo")
             a(href="/") 
-                img(src="../pimg/logopro.png" alt="ICU soon")
+                img(src="/pimg/logopro.png" alt="ICU soon")
 
     .details(style="display:flex; justify-content:center; width: 100%; align-items: center; height: 50vh;") 
         .box-1(style="margin-right: 50px;")

@@ -1,0 +1,344 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+nav {
+  background: #fff;
+  height: 80px;
+  width: 100%;
+}
+.logo img {
+  height: 80px;
+  width: 170px;
+  margin-left: 125px;
+}
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+nav ul li {
+  font-family: "Righteous", cursive;
+  display: inline-block;
+  margin: 0 15px;
+  margin-left: 25px;
+  padding-top: 1px;
+  padding-left: 15px;
+  /* font-size: 20px; */
+  line-height: 80px;
+  font-weight: 700;
+}
+nav ul li a {
+  font-size: 1.3rem;
+  color: rgb(17, 143, 226);
+  padding-left: 7px;
+  padding-bottom: 2px;
+  border-left: 3px solid rgb(41, 166, 238);
+  border-bottom: 5px solid rgb(41, 166, 238);
+  border-radius: 10px;
+}
+nav ul li a:hover {
+  color: rgb(44, 109, 248);
+  border-left: 3px solid rgb(44, 92, 248);
+  border-bottom: 5px solid rgb(44, 92, 248);
+  /* transition: .5s; */
+  text-shadow: 0.2px 0.2px 0.5px rgb(30, 119, 252);
+  border-left: 3px solid rgb(41, 166, 238);
+  border-bottom: 4px solid rgb(41, 166, 238);
+}
+nav ul li a:active {
+  margin-left: 1px;
+  border-left: 2px solid rgb(41, 166, 238);
+  border-bottom: 2.4px solid rgb(41, 166, 238);
+}
+.em:hover {
+  color: rgb(216, 55, 27);
+  border-left: 3px solid rgb(218, 50, 20);
+  border-bottom: 5px solid rgb(212, 41, 10);
+}
+.em:active {
+  border-left: 2px solid rgb(218, 50, 20);
+  border-bottom: 2.6px solid rgb(212, 41, 10);
+}
+.checkbtn {
+  font-size: 30px;
+  color: black;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+.signin {
+  font-weight: 500;
+  border-radius: 7px;
+  padding: 6px;
+  padding: 6px 9px;
+  color: white;
+  background-color: rgb(31, 128, 240);
+}
+
+.signin:hover {
+  background-color: rgb(32, 101, 228);
+  color: white;
+}
+
+#check {
+  display: none;
+}
+@media (max-width: 952px) {
+  .logo img {
+    margin-left: 5px;
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1100px) {
+  .checkbtn {
+    display: block;
+  }
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 30px;
+  }
+  a:hover,
+  a.active {
+    background: none;
+    color: #0000ff;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+}
+
+/*SECTION-1*/
+
+.s1 {
+  background: url(/pimg/qss2back1.jpg) no-repeat center center/cover;
+  background-position-y: -450px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid blue;
+  border-top: 1px solid blue;
+}
+.s1_head {
+  padding-top: 20px;
+  padding-left: 16%;
+  font-size: 3.3rem;
+  color: rgb(15, 101, 199);
+  font-family: "Righteous", cursive;
+  /* font-family: 'Merriweather Sans', sans-serif; */
+  font-weight: 550;
+}
+
+.s1_by {
+  /* padding-top: 20px; */
+  padding-left: 16%;
+  font-size: 1.5rem;
+  color: rgb(15, 101, 199);
+  font-family: "Righteous", cursive;
+  /* font-family: 'Merriweather Sans', sans-serif; */
+  font-weight: 500;
+}
+
+/* ADVISORY SECTION*/
+
+.intro {
+  display: flex;
+}
+
+.intro img {
+  margin: 40px;
+  width: 530px;
+  height: 400px;
+  margin-top: 50px;
+  margin-left: 60px;
+  border-radius: 10px;
+}
+.f1 {
+  margin: 25px;
+  border: 2.2px solid rgb(56, 102, 226);
+  background-color: rgb(244, 249, 255);
+}
+.heading1 {
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  margin-left: 8%;
+  color: rgb(20, 90, 220);
+}
+
+.para1 {
+  text-align: justify;
+  padding: 30px;
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  color: rgb(3, 3, 95);
+}
+
+.f2 {
+  margin: 25px;
+  border: 2.2px solid rgb(56, 102, 226);
+  background-color: rgb(244, 249, 255);
+}
+
+.head1 {
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  margin-left: 8%;
+  color: rgb(20, 90, 220);
+}
+
+.para2 {
+  text-align: justify;
+  padding: 30px;
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  color: rgb(3, 3, 95);
+}
+
+.f3 {
+  margin-left: 30px;
+  border: 2.2px solid rgb(56, 102, 226);
+  background-color: rgb(244, 249, 255);
+}
+
+.heading3 {
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  margin-left: 8%;
+  color: rgb(20, 90, 220);
+}
+
+.para3 {
+  text-align: justify;
+  padding: 30px;
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  color: rgb(3, 3, 95);
+}
+
+.para3 ul {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.f4 {
+  margin: 25px;
+  border: 2.2px solid rgb(56, 102, 226);
+  background-color: rgb(244, 249, 255);
+}
+
+.heading4 {
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  margin-left: 8%;
+  color: rgb(20, 90, 220);
+}
+
+.para4 {
+  text-align: justify;
+  padding: 30px;
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  color: rgb(3, 3, 95);
+}
+
+.para4 li {
+  font-size: 1.3rem;
+  padding-bottom: 5px;
+}
+
+.f5 {
+  margin: 25px;
+  border: 2.2px solid rgb(56, 102, 226);
+  background-color: rgb(244, 249, 255);
+}
+
+.heading5 {
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  margin-left: 8%;
+  color: rgb(20, 90, 220);
+}
+
+.para5 {
+  text-align: justify;
+  padding: 30px;
+  font-size: 1.2rem;
+  font-family: "Bree Serif", serif;
+  color: rgb(3, 3, 95);
+}
+
+.motiv {
+  background: url(pimg/qss2back1.jpg) no-repeat center center/cover;
+}
+
+.motiv p {
+  text-align: center;
+  padding: 23px;
+  font-size: 2.8rem;
+  font-family: "Bree Serif", serif;
+  color: rgb(3, 3, 95);
+}
+
+/*SECTION-4 STATS*/
+/****************************************************************************/
+.stats {
+  background: url(pimg/lastsec.jpg) no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats .bigbox4 {
+  display: flex;
+  margin: auto;
+  text-align: center;
+  color: white;
+  text-shadow: 3px 3px 3px rgb(1, 20, 59);
+  margin-top: 70px;
+  margin-bottom: 60px;
+}
+.stats .box4 {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+/*Footer*/
+footer {
+  background-color: #343a40;
+  color: white;
+  height: 8rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2.5rem;
+  font-size: 1.4rem;
+}
+.footer p {
+  margin: 0;
+}
+.rights {
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+}

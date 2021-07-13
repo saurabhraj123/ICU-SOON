@@ -5,12 +5,13 @@
 <head>
     <title>ICU soon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../doctor_details.css">
+    <link rel="stylesheet" href="/doctor_details.css">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Righteous&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Merienda:wght@700&family=Righteous&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arvo:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    //- script(src="/doctor_details.js")
 
 </head>
 //- script(src="../enableButton.js")
@@ -44,11 +45,11 @@
                 if(!isValidated)
                     a(class="active" href="#") Home
                 -else{ 
-                    -const url = "../user/" + user_id;
+                    -const url = "/user/" + user_id;
                     a(class="active" href=url) Profile
                 -}
             li 
-                a(href="#") Services & Conditions
+                a(href="/services") Services & Conditions
             li 
                 a(href="#" class="em") Notifications  
             li 
@@ -57,10 +58,10 @@
                 if(!isValidated)
                     a(href="authenticate" class="signin") Sign up/Log in
                 else 
-                    a(href="../authenticate/logout" class="signin") Logout
+                    a(href="/authenticate/logout" class="signin") Logout
         div(class="logo")
             a(href="/") 
-                img(src="../pimg/logopro.png" alt="ICU soon")
+                img(src="/pimg/logopro.png" alt="ICU soon")
     
     //- include navigation.pug
 
@@ -231,9 +232,9 @@
         <p class="rights">All rights reserved</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    script
-        | AOS.init();
+    //- <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    //- script
+    //-     | AOS.init();
     
     script. 
             var modal = document.getElementById("myModal");

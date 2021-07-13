@@ -16,7 +16,8 @@ const homeRouter           = require('./routes/home');
 const authenticationRouter = require('./routes/authentication');
 const formRouter           = require('./routes/form');
 const appointmentRouter    = require('./routes/appointment');
-const supportRouter         = require('./routes/quick_support');
+const supportRouter        = require('./routes/quick_support');
+const servicesRouter       = require('./routes/services');
 
 // Setting Routes
 app.use(express.static('public'));
@@ -25,6 +26,7 @@ app.use('/authenticate', authenticationRouter);
 app.use('/user', formRouter);
 app.use('/appointment', appointmentRouter);
 app.use('/quicksupport', supportRouter);
+app.use('/services', servicesRouter);
 
 // Setting PORT
 const port = process.env.PORT || 3000;

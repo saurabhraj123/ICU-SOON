@@ -14,16 +14,17 @@ nav
                     a(class="active" href=url) Profile
                 -}
             li 
-                a(href="#") Services & Conditions
-            li 
-                a(href="#" class="em" onClick="toggleNotifi()") Notifications  
+                a(href="/services") Services & Conditions
+            if(isValidated)
+                li 
+                    a(href="#" class="em" onClick="toggleNotifi()") Notifications  
             li 
                 a(href="#") Contact Us 
             li 
                 if(!isValidated)
-                    a(href="authenticate" class="signin") Sign up/Log in
+                    a(href="/authenticate" class="signin") Sign up/Log in
                 else 
-                    a(href="authenticate/logout" class="signin") Logout
+                    a(href="/authenticate/logout" class="signin") Logout
         div(class="logo")
             a(href="/") 
                 img(src="/pimg/logopro.png" alt="ICU soon")
@@ -39,7 +40,7 @@ nav
         }
         return time.join (''); // return adjusted time or original string
         }
--if(typeof(notification) != 'undefined')
+-if(isValidated && typeof(page) != 'undefined')
     <div class="notifi-box" id="box">
     h2 Notifications:
         span= "  " + notification.length

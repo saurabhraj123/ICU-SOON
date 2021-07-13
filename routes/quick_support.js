@@ -26,4 +26,17 @@ router.get('/', check_form, (req, res) => {
     
 })
 
+router.get('/advisory', check_form, (req, res)=> {
+    var decodedValue;
+    let isValidated = false;
+    if(req.cookies.jwt){
+        isValidated = true;
+        decodedValue = decode(req.cookies.jwt);
+        
+        res.render('advisory', {isValidated, _id: decodedValue._id});
+    }else {
+        res.render('advisory', {isValidated});
+    }
+})
+
 module.exports = router;
