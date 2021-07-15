@@ -14,12 +14,12 @@ nav
                     a(class="active" href=url) Profile
                 -}
             li 
-                a(href="/services") Services & Conditions
+                a(href="/services") Services &amp; Conditions
             if(isValidated)
                 li 
                     a(href="#" class="em" onClick="toggleNotifi()") Notifications  
             li 
-                a(href="#") Contact Us 
+                a(href="contact") Contact Us 
             li 
                 if(!isValidated)
                     a(href="/authenticate" class="signin") Sign up/Log in

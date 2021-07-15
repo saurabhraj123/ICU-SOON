@@ -130,6 +130,7 @@ nav ul li a:active {
 .s1 {
   width: 100%;
   height: 100vh;
+  overflow: hidden;
   background: url(pimg/fulldoc.jpg);
   background-size: cover;
   /* background-position: center; */
@@ -252,11 +253,13 @@ nav ul li a:active {
   width: 90%;
   margin: auto;
   margin-top: 50px;
+  overflow: hidden;
   margin-bottom: 50px;
   text-align: center;
   padding-top: 34px;
   background: url(pimg/3docback.jpg) no-repeat center center/cover;
   /* box-shadow: -14px -14px 14px rgb(137, 148, 150); */
+  box-shadow: 0 0 14px rgb(137, 148, 150);
 }
 .s2h {
   font-size: 2rem;
@@ -265,7 +268,8 @@ nav ul li a:active {
   text-shadow: 3px 3px 5px black;
 }
 .s2 .services {
-  margin-top: 4%;
+  margin-top: 30px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -294,10 +298,11 @@ nav ul li a:active {
   box-shadow: 6px 6px 6px rgb(30, 57, 87);
 }
 .s2 .services h1 {
-  font-size: 2rem;
+  font-size: 1.82rem;
   color: rgb(255, 255, 255);
   font-family: "Merienda", cursive;
   text-shadow: 3px 3px 5px black;
+  margin-top: 14px;
 }
 .s2 .services h2 {
   font-size: 1.2rem;
@@ -323,13 +328,14 @@ nav ul li a:active {
   padding-top: 45px;
   padding-bottom: 52px;
   width: 100%;
+  overflow: hidden;
   background: url(pimg/s3back1.jpg) no-repeat center center/cover;
   text-align: center;
 }
 
 .pat {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 10px;
+  margin-right: 20px;
   width: 100%;
   display: inline-block;
 }
